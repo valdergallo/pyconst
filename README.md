@@ -36,7 +36,7 @@ ADD_USER_PRIVATE = 'add_user_private'
 
 You must check is the value is not duplicated, because you can overrind other values.
 
-## The problem to use this
+## The problem
 
 
 In my module, now I'll need only one value from my `constant`
