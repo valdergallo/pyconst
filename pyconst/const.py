@@ -4,6 +4,7 @@ from .slug import slugify as s
 
 
 class PyConstString(str):
+
     def __new__(cls, attr, label):
         obj = str.__new__(cls, s(attr))
         obj.label = label
