@@ -56,7 +56,7 @@ setup(name='pyconst',
       version=pyconst.get_version(),
       tests_require=tests_requires,
       cmdclass = {'test': PyTest},
-      packages=['pyconst'],
+      packages=find_packages('pyconst'),
       zip_safe=False,
       platforms='any',
 )

@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 import random
 import string
 from pyconst import PyConst
-char_set = string.ascii_uppercase
 
+CHAR_SET = string.ascii_uppercase
 
 def rand_text(max_length=6):
-    return ''.join(random.sample(char_set*max_length, max_length))
+    return ''.join(random.sample(CHAR_SET*max_length, max_length))
 
 
 def test_add_one_time(benchmark):
