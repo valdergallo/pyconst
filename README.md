@@ -9,14 +9,12 @@ your IDE can help you with `autocomplete` and other things
 
 Ok, everybody that use `constants` in your project is a good pratices :D
 
-
 ## But why this project ?
 
 When I created one `cont.py` this file could be big and I need one right way to aggroup the values
 with the constants.
 
 ```
-
 ADD_USER = 'add_user'
 UPDATE_USER = 'add_user'
 
@@ -24,7 +22,6 @@ USER_PERMISSIONS = (
     (ADD_USER, 'Add User'),
     (UPDATE_USER, 'Update User'),
 )
-
 ```
 
 Ok, this is simple, but think in a case that you have more than 100 values in your file.
@@ -38,12 +35,9 @@ You must check is the value is not duplicated, because you can overrind other va
 
 ## The problem
 
-
 In my module, now I'll need only one value from my `constant`
 
-
 ```
-
 from .const import USER_PERMISSIONS, ADD_USER
 
 @has_perm(ADD_USER)
@@ -56,14 +50,10 @@ And think that you `USER_PERMISSIONS` could be bigger, with 30 permissions or mo
 `ADD_USER` no have any connection with `USER_PERMISSION`, I could have `ADD_USER` in a different
 `constants` without connection with `USER_PERMISSION`, something like `ADMIN_DEFAULT_ACTIONS` or 
 `MANAGER_CONSTANT`.
-Import all the `constants` could be more hard that you through.
-
 
 ## The Solution (Morning Sun)
 
-Yes, we working with Python.
-
-And now we can set the contants as one PyConst
+Yes, we working with Python. And now we can set the contants as one PyConst
 
 ```
 from pyconst import PyConst
