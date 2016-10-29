@@ -93,11 +93,51 @@ In [6]: USER_PERMISSIONS.add_user.label
 Out[6]: u'Add User'
 ```
 
-Now is more easy undestand the constants and organize the values
+Check that is more easy undestand the constants and organize the values, and don't need use
+multiple imports to get values. Because the values are in `constants`
 
 ```
 from company.const import COMPANY_PERMISSIONS
 from company.const import COMPANY_WORKFLOW
 from user.const import USER_PERMISSIONS
 
+```
+
+Example in `django model`
+
+```
+from pyconst import Const
+
+USER_PERMISSIONS = Const(
+    'Add User',
+    'Update User'
+)
+
+class CustomUser(UserAbstract):
+    
+    class Meta:
+        permissions = USER_PERMISSIONS
+
+```
+
+Add value in constants
+
+```
+>>> from pyconst import Const
+>>> const = Const()
+>>> cont.add(label='My Label Name', attr='my_attribute_name')
+```
+
+or
+
+```
+>>> from pyconst import Const
+>>> const = Const('My Label Name')
+```
+
+or
+
+```
+>>> from pyconst import Const
+>>> const = Const(('My Label Name', 'my_attribute_name'))
 ```
