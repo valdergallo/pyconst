@@ -10,7 +10,7 @@ class PyConstString(str):
         return obj
 
 
-class PyConst(object):
+class Const(object):
 
     def __init__(self, *args, **kwargs):
         self.__data = ()

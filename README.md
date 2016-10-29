@@ -40,10 +40,22 @@ You must check is the value is not duplicated, because you can overrind other va
 In my module, now I'll need only one value from my `constant`
 
 ```
-from .const import USER_PERMISSIONS, ADD_USER
+from company.const import (
+    ADD_PERSON,
+    EXCLUDE_PERSON,
+    PERSON_STATE_START,
+    PERSON_STATE_END,
+    PERSON_STATE_WAITING,
+    ...
+    )
+from .const import (
+    USER_PERMISSIONS, 
+    ADD_USER
+    )
 
 @has_perm(ADD_USER)
 def my_example():
+    choices = USER_PERMISSIONS
     ....
 
 ```
@@ -55,12 +67,12 @@ And think that you `USER_PERMISSIONS` could be bigger, with 30 permissions or mo
 
 ## The Solution (Morning Sun)
 
-Yes, we working with Python. And now we can set the contants as one PyConst
+Yes, we working with Python. And now we can set the contants as one `Const`
 
 ```
-from pyconst import PyConst
+from pyconst import Const
 
-USER_PERMISSIONS = PyConst(
+USER_PERMISSIONS = Const(
     'Add User',
     'Update User'
 )
@@ -79,3 +91,11 @@ In [6]: USER_PERMISSIONS.add_user.label
 Out[6]: u'Add User'
 ```
 
+Now is more easy undestand the constants and organize the values
+
+```
+from company.const import COMPANY_PERMISSIONS
+from company.const import COMPANY_WORKFLOW
+from user.const import USER_PERMISSIONS
+
+```

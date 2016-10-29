@@ -1,13 +1,13 @@
 # encoding: utf-8
 from __future__ import unicode_literals
 import unittest
-from pyconst import PyConst
+from pyconst import Const
 
 
-class TestPyConsts(unittest.TestCase):
+class TestConsts(unittest.TestCase):
 
     def setUp(self):
-        self.const = PyConst()
+        self.const = Const()
 
     def test_slugify(self):
         self.const.add('caça vovó')
@@ -23,7 +23,7 @@ class TestPyConsts(unittest.TestCase):
             self.assertEqual(value, ('update_item', 'update item'))
 
     def test_set_init_values(self):
-        const = PyConst(
+        const = Const(
             'add user',
             'create user',
             'delete user',
@@ -33,7 +33,7 @@ class TestPyConsts(unittest.TestCase):
         self.assertEqual(len(const), 3)
 
     def test_get_value(self):
-        const = PyConst(
+        const = Const(
             'Add User',
             'Create User',
             'Delete User',
@@ -42,7 +42,7 @@ class TestPyConsts(unittest.TestCase):
         self.assertEqual(const.add_user.label, 'Add User')
 
     def test_slug_stranger_characteres(self):
-        const = PyConst(
+        const = Const(
             'Add - User',
         )
         self.assertEqual(const.add_user, 'add_user')
@@ -53,7 +53,7 @@ class TestPyConsts(unittest.TestCase):
         self.assertEqual(self.const.update_item.label, 'Update item (new)')
 
     def test_get_value_in_order(self):
-        const = PyConst(
+        const = Const(
             'Add User',
             'Create User',
             'Delete User',
@@ -62,7 +62,7 @@ class TestPyConsts(unittest.TestCase):
         self.assertEqual(const[0], ('add_user', u'Add User'))
 
     def test_get_multiple_value_in_order(self):
-        const = PyConst(
+        const = Const(
             ('Add User', 'add_user'),
             ('Create User', 'create_user'),
             ('Delete User', 'delete_user'),
@@ -71,9 +71,13 @@ class TestPyConsts(unittest.TestCase):
         self.assertEqual(const[0], ('add_user', u'Add User'))
 
     def test_get_multiple_kwargs_value_in_order(self):
-        const = PyConst(**{'Add User': 'add_user'})
+        const = Const(**{'Add User': 'add_user'})
         self.assertEqual(const[0], ('add_user', u'Add User'))
 
+    def test_slug_index_error(self):
+        const = Const()
+        const.add(['Add User'])
+        self.assertEqual(const[0], ('add_user', u'Add User'))
 
 
 if __name__ == '__main__':
