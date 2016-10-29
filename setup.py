@@ -9,7 +9,6 @@ import pyconst
 tests_requires = [
     'pytest==3.0.3',
     'pytest-cov==2.4.0',
-    'pytest-benchmark==3.0.0',
 ]
 
 class PyTest(TestCommand):
