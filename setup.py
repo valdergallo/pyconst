@@ -7,8 +7,8 @@ from setuptools.command.test import test as TestCommand
 import pyconst
 
 tests_requires = [
-    'pytest==3.0.3',
-    'pytest-cov==2.4.0',
+    'pytest==3.0.2',
+    'pytest-cov==2.3.1',
 ]
 
 class PyTest(TestCommand):
