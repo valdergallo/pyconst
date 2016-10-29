@@ -72,7 +72,7 @@ USER_PERMISSIONS = PyConst(
 
 ```
 
-![Enable Auto Complate](https://github.com/valdergallo/pyconst/screen_auto_complete.png "Enable Auto Complate")
+![Enable Auto Complate](https://github.com/valdergallo/pyconst/blob/master/screen_auto_complete.png "Enable Auto Complate")
 
 And `USER_PERMISSION` will have one new attribute by `permission`
 
