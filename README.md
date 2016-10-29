@@ -5,7 +5,7 @@
 Everbody in Python need create a little constants in your project. I had been working with
 Django Project and is a good pratices create constants for `permission` or any others
 values that could be `global` in your project. And could be good for `translation`,
-your IDE can help you ... and other things
+your IDE can help you with `autocomplete` and other things
 
 Ok, everybody that use `constants` in your project is a good pratices :D
 
@@ -52,7 +52,10 @@ def my_example():
 
 ```
 
-And think that you USER_PERMISSIONS could be bigger, with 30 permissions or more ...
+And think that you `USER_PERMISSIONS` could be bigger, with 30 permissions or more ...
+`ADD_USER` no have any connection with `USER_PERMISSION`, I could have `ADD_USER` in a different
+`constants` without connection with `USER_PERMISSION`, something like `ADMIN_DEFAULT_ACTIONS` or 
+`MANAGER_CONSTANT`.
 Import all the `constants` could be more hard that you through.
 
 
