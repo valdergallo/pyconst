@@ -30,7 +30,7 @@ def readme():
         with open('README.rst') as f:
             return f.read()
     except:
-        return '''pyconst'''
+        return '''PyConst one simple way to organize the constants'''
 
 
 setup(name='pyconst',
@@ -39,7 +39,7 @@ setup(name='pyconst',
       author="valdergallo",
       author_email='valdergallo@gmail.com',
       keywords=['django', 'constants', 'data', 'control'],
-      description='Simple library with flow in choices values for Django',
+      description='PyConst one simple way to organize the constants',
       license='GPL-3.0',
       long_description=readme(),
       classifiers=[
