@@ -56,7 +56,7 @@ And think that you USER_PERMISSIONS could be bigger, with 30 permissions or more
 Import all the `constants` could be more hard that you through.
 
 
-# The Solution (Morning Sum)
+## The Solution (Morning Sun)
 
 Yes, we working with Python.
 
