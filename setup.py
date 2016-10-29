@@ -35,7 +35,7 @@ def readme():
 
 setup(name='pyconst',
       url='https://github.com/valdergallo/pyconst',
-      download_url='https://github.com/valdergallo/pyconst/tarball/v%s/' % pyconst.get_version(),
+      download_url='https://github.com/valdergallo/pyconst/tarball/%s/' % pyconst.get_version(),
       author="valdergallo",
       author_email='valdergallo@gmail.com',
       keywords=['constants', 'django', 'data', 'control'],
