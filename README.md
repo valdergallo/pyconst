@@ -1,5 +1,7 @@
 # PyConst
 
+[![Build Status](https://travis-ci.org/valdergallo/pyconst.svg?branch=master)](https://travis-ci.org/valdergallo/pyconst)
+
 ## The problem
 
 Everbody in Python need create a little constants in your project. I had been working with
