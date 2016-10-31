@@ -13,7 +13,7 @@ your IDE can help you with `autocomplete` and other things
 
 Ok, everybody that use `constants` in your project is a good pratices :D
 
-## Why I need project ?
+## Why I need this ?
 
 When I created one `cont.py` this file could be big and I need one right way to aggroup the values
 with the constants.
