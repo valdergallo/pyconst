@@ -1,6 +1,5 @@
 [run]
 source = pyconst
-omit = */migrations/*
 
 [report]
 exclude_lines =
@@ -12,6 +11,7 @@ exclude_lines =
     raise NotImplementedError
     if 0:
     if __name__ == .__main__.:
+    def __getitem__
     def __iter__
     def __len__
     __metaclass__
