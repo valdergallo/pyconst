@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/valdergallo/pyconst.svg?branch=master)](https://travis-ci.org/valdergallo/pyconst)
 [![Coverage Status](https://coveralls.io/repos/github/valdergallo/pyconst/badge.svg?branch=master)](https://coveralls.io/github/valdergallo/pyconst?branch=master)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![Latest Version](http://img.shields.io/pypi/v/pyconst.svg)](https://pypi.python.org/pypi/pyconst)
 
 ## The problem
 
