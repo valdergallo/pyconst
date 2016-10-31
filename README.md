@@ -151,3 +151,12 @@ or
 >>> c._1 
 '1'
 ```
+
+or 
+
+```
+>>> c = Cont()
+>>> c.add(label='First Item',attr="my_attr", value=1)
+>>> c.my_attr 
+'1'
+```
