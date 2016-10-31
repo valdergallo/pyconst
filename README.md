@@ -16,8 +16,7 @@ Ok, everybody that use `constants` in your project is a good pratices :D
 
 ## Why I need this ?
 
-When I created one `cont.py` this file could be big and I need one right way to aggroup the values
-with the constants.
+Think that you need create one `const.py` with a lot `contansts` and aggroup the values
 
 ```
 ADD_USER = 'add_user'
@@ -36,7 +35,7 @@ Or think that you need create one constant with a similar name.
 ADD_USER_PRIVATE = 'add_user_private'
 ```
 
-You must check is the value is not duplicated, because you can overrind other values.
+You must check the value if is not duplicated, because you can overrind other values.
 
 ## The problem
 
@@ -94,7 +93,7 @@ In [6]: USER_PERMISSIONS.add_user.label
 Out[6]: u'Add User'
 ```
 
-Check that is more easy undestand the constants and organize the values, and don't need use
+Check that is more easy undestand the constants and organize the values, and no need use
 multiple imports to get values. Because the values are in `constants`
 
 ```

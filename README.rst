@@ -18,8 +18,7 @@ Ok, everybody that use ``constants`` in your project is a good pratices
 Why I need this ?
 -----------------
 
-When I created one ``cont.py`` this file could be big and I need one
-right way to aggroup the values with the constants.
+Think that you need create one `const.py` with a lot `contansts` and aggroup the values
 
 ::
 
@@ -39,7 +38,7 @@ similar name.
 
     ADD_USER_PRIVATE = 'add_user_private'
 
-You must check is the value is not duplicated, because you can overrind
+You must check the value if is not duplicated, because you can overrind
 other values.
 
 The problem
@@ -58,7 +57,7 @@ In my module, now I'll need only one value from my ``constant``
         ...
         )
     from .const import (
-        USER_PERMISSIONS, 
+        USER_PERMISSIONS,
         ADD_USER
         )
 
@@ -104,7 +103,7 @@ And ``USER_PERMISSION`` will have one new attribute by ``permission``
     Out[6]: u'Add User'
 
 Check that is more easy undestand the constants and organize the values,
-and don't need use multiple imports to get values. Because the values
+and no need use multiple imports to get values. Because the values
 are in ``constants``
 
 ::
@@ -125,7 +124,7 @@ Example in ``django model``
     )
 
     class CustomUser(UserAbstract):
-        
+
         class Meta:
             permissions = USER_PERMISSIONS
 
@@ -157,7 +156,7 @@ or
 
     >>> c = Cont()
     >>> c.add('First Item', 1)
-    >>> c._1 
+    >>> c._1
     '1'
 
 or
@@ -166,7 +165,7 @@ or
 
     >>> c = Cont()
     >>> c.add(label='First Item',attr="my_attr", value=1)
-    >>> c.my_attr 
+    >>> c.my_attr
     '1'
 
 .. |Build Status| image:: https://travis-ci.org/valdergallo/pyconst.svg?branch=master
