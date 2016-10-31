@@ -3,6 +3,7 @@ source = pyconst
 
 [report]
 exclude_lines =
+    import
     pragma: no cover
     def __repr__
     if self.debug:
