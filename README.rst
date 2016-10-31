@@ -18,7 +18,7 @@ Ok, everybody that use ``constants`` in your project is a good pratices
 Why I need this ?
 -----------------
 
-Think that you need create one `const.py` with a lot `contansts` and aggroup the values
+Think that you need create one `const.py` with a lot `constants` and aggroup the values
 
 ::
 
