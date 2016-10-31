@@ -1,7 +1,7 @@
 # encoding: utf-8
 from __future__ import unicode_literals, absolute_import
 
-__version__ = (1, 0, 0)
+__version__ = (1, 0, 1)
 __author__ = 'valdergallo@gmail.com'
 
 from .const import Const

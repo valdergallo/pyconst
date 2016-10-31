@@ -1,6 +1,7 @@
 # encoding: utf-8
 from __future__ import unicode_literals, absolute_import
 from .slug import slugify as s
+from .slug import slugify_attr as s_attr
 
 
 class PyConstString(str):
@@ -35,7 +36,7 @@ class Const(object):
             attr = label
 
         self.__data += (PyConstString(attr, label),)
-        self.__dict__[s(attr)] = self.__data[-1]
+        self.__dict__[s_attr(attr)] = self.__data[-1]
 
     def __getitem__(self, index):
         "Get index item"

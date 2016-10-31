@@ -79,6 +79,12 @@ class TestConsts(unittest.TestCase):
         const.add(['Add User'])
         self.assertEqual(const[0], ('add_user', u'Add User'))
 
+    def test_number_attr(self):
+        const = Const()
+        const.add('First item', 1)
+        self.assertEqual(const[0], ('1', u'First item'))
+        self.assertEqual(const._1, '1')
+
 
 if __name__ == '__main__':
     unittest.main()
