@@ -85,6 +85,12 @@ class TestConsts(unittest.TestCase):
         self.assertEqual(const[0], ('1', u'First item'))
         self.assertEqual(const._1, '1')
 
+    def test_set_different_attribute_and_value(self):
+        const = Const()
+        const.add(label='First item', attr="my_item", value=1)
+        self.assertEqual(const[0], ('1', u'First item'))
+        self.assertEqual(const.my_item, '1')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -6,8 +6,8 @@ from .slug import slugify_attr as s_attr
 
 class PyConstString(str):
 
-    def __new__(cls, attr, label):
-        obj = str.__new__(cls, s(attr))
+    def __new__(cls, label, value):
+        obj = str.__new__(cls, s(value))
         obj.label = label
         return obj
 
@@ -22,7 +22,7 @@ class Const(object):
         for label, attr in kwargs.items():
             self.add(label, attr)
 
-    def add(self, label, attr=None):
+    def add(self, label, attr=None, value=None):
         "Set values in constant"
 
         if isinstance(label, tuple) or isinstance(label, list):
@@ -35,7 +35,11 @@ class Const(object):
         if not attr:
             attr = label
 
-        self.__data += (PyConstString(attr, label),)
+        if not value:
+            value = attr
+
+        self.__data += (PyConstString(label=label, value=value),)
+        # set attribute as slugfiy
         self.__dict__[s_attr(attr)] = self.__data[-1]
 
     def __getitem__(self, index):
