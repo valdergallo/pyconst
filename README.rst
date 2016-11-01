@@ -123,7 +123,7 @@ Example in ``django model``
         'Update User'
     )
 
-    class CustomUser(UserAbstract):
+    class CustomUser(AbstractUser):
 
         class Meta:
             permissions = USER_PERMISSIONS
