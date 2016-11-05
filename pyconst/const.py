@@ -22,20 +22,30 @@ class Const(object):
         for label, attr in kwargs.items():
             self.add(label, attr)
 
+    def __set_iter_value(self, iter_value):
+        label, attr, value = (None,) * 3
+        if len(iter_value) == 1:
+            label = iter_value[0]
+        elif len(iter_value) == 2:
+            label, attr = iter_value
+        elif len(iter_value) == 3:
+            label, attr, value = label
+        elif len(iter_value) > 3:
+            attr = label[1]
+            value = label[2]
+            label = label[0]
+        return label, attr, value
+
     def add(self, label, attr=None, value=None):
         "Set values in constant"
 
         if isinstance(label, tuple) or isinstance(label, list):
-            label = label[0]
-            try:
-                atrr = label[1]
-            except IndexError:
-                pass
+            label, attr, value = self.__set_iter_value(label)
 
-        if not attr:
+        if attr is None:
             attr = label
 
-        if not value:
+        if value is None:
             value = attr
 
         self.__data += (PyConstString(label=label, value=value),)
