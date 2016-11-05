@@ -145,6 +145,13 @@ or
 or
 
 ```
+>>> from pyconst import Const
+>>> const = Const(('My Label Name', 'my_attribute_name', 'my_attribute_value'))
+```
+
+or
+
+```
 >>> c = Cont()
 >>> c.add('First Item', 1)
 >>> c._1 

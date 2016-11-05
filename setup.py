@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-from setuptools import setup, find_packages
+from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
 import pyconst
@@ -11,6 +11,7 @@ tests_requires = [
     'pytest-cov==2.4.0',
 ]
 
+
 class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
@@ -18,7 +19,7 @@ class PyTest(TestCommand):
         self.test_suite = True
 
     def run_tests(self):
-        #import here, cause outside the eggs aren't loaded
+        # import here, cause outside the eggs aren't loaded
         import pytest
         errno = pytest.main(self.test_args)
         sys.exit(errno)
@@ -50,11 +51,14 @@ setup(name='pyconst',
           'Programming Language :: Python :: 2.6',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6',
       ],
       include_package_data=True,
       version=pyconst.get_version(),
       tests_require=tests_requires,
-      cmdclass = {'test': PyTest},
+      cmdclass={'test': PyTest},
       packages=['pyconst'],
       zip_safe=False,
       platforms='any',
