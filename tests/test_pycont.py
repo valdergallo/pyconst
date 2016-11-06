@@ -91,6 +91,20 @@ class TestConsts(unittest.TestCase):
         self.assertEqual(const[0], ('1', u'First item'))
         self.assertEqual(const.my_item, '1')
 
+    def test_set_const_with_tuple_three_values(self):
+        const = Const(('Label Test', 'Attr test', 'Value test'),
+                      ('Label Test2', 'Attr test2', 'Value test2'),)
+
+        self.assertEqual(const[0], ('value_test', u'Label Test'))
+        self.assertEqual(const.attr_test, 'value_test')
+
+    def test_set_const_with_tuple_four_values(self):
+        const = Const(('Label Test', 'Attr test', 'Value test', 'Ignore Value'),
+                      ('Label Test2', 'Attr test2', 'Value test2', 'Ignore Value'),)
+
+        self.assertEqual(const[0], ('value_test', u'Label Test'))
+        self.assertEqual(const.attr_test, 'value_test')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -29,11 +29,11 @@ class Const(object):
         elif len(iter_value) == 2:
             label, attr = iter_value
         elif len(iter_value) == 3:
-            label, attr, value = label
+            label, attr, value = iter_value
         elif len(iter_value) > 3:
-            attr = label[1]
-            value = label[2]
-            label = label[0]
+            attr = iter_value[1]
+            value = iter_value[2]
+            label = iter_value[0]
         return label, attr, value
 
     def add(self, label, attr=None, value=None):
