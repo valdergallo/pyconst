@@ -6,7 +6,9 @@ from .slug import slugify_attr as s_attr
 
 class PyConstString(str):
 
-    def __new__(cls, label, value):
+    def __new__(cls, label=None, value=None):
+        if not value:
+            value = label
         obj = str.__new__(cls, s(value))
         obj.label = label
         return obj
