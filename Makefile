@@ -4,7 +4,7 @@ send_package:
 
 clean:
 	find . -name '*.pyc' -delete
-	ptyhon setup.py clean --all
+	python setup.py clean --all
 	rm -rf pyconst.egg-info
 	rm -rf dist
 
