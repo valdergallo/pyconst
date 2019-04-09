@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/valdergallo/pyconst/badge.svg?branch=master)](https://coveralls.io/github/valdergallo/pyconst?branch=master)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 [![Latest Version](http://img.shields.io/pypi/v/pyconst.svg)](https://pypi.python.org/pypi/pyconst)
+[![Pypi Download](http://img.shields.io/pypi/dm/pyconst.svg)](https://www.djangopackages.com/packages/p/pyconst)
 
 ## The problem
 
