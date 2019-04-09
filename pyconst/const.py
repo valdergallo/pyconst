@@ -6,11 +6,13 @@ from .slug import slugify_attr as s_attr
 
 class PyConstString(str):
 
-    def __new__(cls, label=None, value=None, to_upper=True):
+    def __new__(cls, label=None, value=None, to_case='upper'):
         if not value:
             value = label
-        if to_upper:
+        if to_case == 'upper':
             value = s(value).upper()
+        elif to_case == 'lower':
+            value = s(value).lower()
         else:
             value = s(value)
         obj = str.__new__(cls, value)
@@ -42,7 +44,10 @@ class Const(object):
             label = iter_value[0]
         return label, attr, value
 
-    def add(self, label, attr=None, value=None, to_upper=True):
+    def get_const_string(self, label, value):
+        return PyConstString(label=label, value=value, to_case="upper")
+
+    def add(self, label, attr=None, value=None):
         "Set values in constant"
 
         if isinstance(label, tuple) or isinstance(label, list):
@@ -54,7 +59,7 @@ class Const(object):
         if value is None:
             value = attr
 
-        self.__data += (PyConstString(label=label, value=value, to_upper=to_upper),)
+        self.__data += (self.get_const_string(label=label, value=value),)
         # set attribute as slugfiy
         self.__dict__[s_attr(attr)] = self.__data[-1]
 
@@ -68,3 +73,24 @@ class Const(object):
 
     def __len__(self):
         return len(self.__data)
+
+
+class LowerConst(Const):
+    "Force value to lower case by default"
+
+    def get_const_string(self, label, value):
+        return PyConstString(label=label, value=value, to_case="lower")
+
+
+class UpperConst(Const):
+    "Force value to upper case"
+
+    def get_const_string(self, label, value):
+        return PyConstString(label=label, value=value, to_case="upper")
+
+
+class DefaultConst(Const):
+    "Default value with only using slugify"
+
+    def get_const_string(self, label, value):
+        return PyConstString(label=label, value=value, to_case=None)
