@@ -6,10 +6,14 @@ from .slug import slugify_attr as s_attr
 
 class PyConstString(str):
 
-    def __new__(cls, label=None, value=None):
+    def __new__(cls, label=None, value=None, to_upper=True):
         if not value:
             value = label
-        obj = str.__new__(cls, s(value))
+        if to_upper:
+            value = s(value).upper()
+        else:
+            value = s(value)
+        obj = str.__new__(cls, value)
         obj.label = label
         return obj
 
@@ -38,7 +42,7 @@ class Const(object):
             label = iter_value[0]
         return label, attr, value
 
-    def add(self, label, attr=None, value=None):
+    def add(self, label, attr=None, value=None, to_upper=True):
         "Set values in constant"
 
         if isinstance(label, tuple) or isinstance(label, list):
@@ -50,7 +54,7 @@ class Const(object):
         if value is None:
             value = attr
 
-        self.__data += (PyConstString(label=label, value=value),)
+        self.__data += (PyConstString(label=label, value=value, to_upper=to_upper),)
         # set attribute as slugfiy
         self.__dict__[s_attr(attr)] = self.__data[-1]
 

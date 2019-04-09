@@ -52,7 +52,7 @@ from company.const import (
     ...
     )
 from .const import (
-    USER_PERMISSIONS, 
+    USER_PERMISSIONS,
     ADD_USER
     )
 
@@ -65,7 +65,7 @@ def my_example():
 
 And think that you `USER_PERMISSIONS` could be bigger, with 30 permissions or more ...
 `ADD_USER` no have any connection with `USER_PERMISSION`, I could have `ADD_USER` in a different
-`constants` without connection with `USER_PERMISSION`, something like `ADMIN_DEFAULT_ACTIONS` or 
+`constants` without connection with `USER_PERMISSION`, something like `ADMIN_DEFAULT_ACTIONS` or
 `MANAGER_CONSTANT`.
 
 ## The Solution (Morning Sun)
@@ -88,7 +88,7 @@ And `USER_PERMISSION` will have one new attribute by `permission`
 
 ```
 In [5]: USER_PERMISSIONS.add_user
-Out[5]: 'add_user'
+Out[5]: 'ADD_USER'
 
 In [6]: USER_PERMISSIONS.add_user.label
 Out[6]: u'Add User'
@@ -115,7 +115,7 @@ USER_PERMISSIONS = Const(
 )
 
 class CustomUser(AbstractUser):
-    
+
     class Meta:
         permissions = USER_PERMISSIONS
 
@@ -155,15 +155,15 @@ or
 ```
 >>> c = Cont()
 >>> c.add('First Item', 1)
->>> c._1 
+>>> c._1
 '1'
 ```
 
-or 
+or
 
 ```
 >>> c = Cont()
 >>> c.add(label='First Item',attr="my_attr", value=1)
->>> c.my_attr 
+>>> c.my_attr
 '1'
 ```
