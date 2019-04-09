@@ -122,6 +122,7 @@ class CustomUser(AbstractUser):
 ```
 
 If you need create consts with values as upper or lower by default
+
 ```
 # force to update values to slugify as uppercase
 from pyconst import UpperConst
