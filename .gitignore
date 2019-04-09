@@ -90,3 +90,5 @@ ENV/
 
 .benchmarks
 .cache
+.vscode/
+.venv/
