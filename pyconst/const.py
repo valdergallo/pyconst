@@ -17,6 +17,7 @@ class PyConstString(str):
             value = s(value)
         obj = str.__new__(cls, value)
         obj.label = label
+        obj.value = value
         return obj
 
 
