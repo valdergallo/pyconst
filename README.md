@@ -76,8 +76,8 @@ Yes, we working with Python. And now we can set the contants as one `Const`
 from pyconst import Const
 
 USER_PERMISSIONS = Const(
-    ('add_user', 'Add User'),
-    ('update_user', 'Update User'),
+    ('add_user', 'AddUser'),
+    ('update_user', 'UpdateUser'),
 )
 
 ```
