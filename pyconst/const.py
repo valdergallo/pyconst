@@ -30,7 +30,7 @@ class Const(object):
             self.add(name, attr)
 
     def __set_iter_value(self, iter_value):
-        name, attr, value = (None,) * 3
+        attr, value, name = (None,) * 3
         if len(iter_value) == 1:
             attr = iter_value[0]
         elif len(iter_value) == 2:
@@ -43,20 +43,14 @@ class Const(object):
             attr = iter_value[0]
         return attr, value, name
 
-    def get_const_string(self, name, value):
-        return PyConstString(name=name, value=value)
-
     def to_enum(self):
         return enum.Enum('DynamicEnum', {i[0]:i[0] for i in self})
 
     def add(self, attr, value=None, name=None):
         "Set values in constant"
 
-        if isinstance(name, tuple) or isinstance(name, list):
-            attr, value, name  = self.__set_iter_value(name)
-
-        if name is None:
-            name = attr
+        if isinstance(attr, tuple) or isinstance(attr, list):
+            attr, value, name  = self.__set_iter_value(attr)
 
         if attr is None:
             attr = name
@@ -64,7 +58,10 @@ class Const(object):
         if value is None:
             value = attr
 
-        self.__data += (self.get_const_string(name=name, value=value),)
+        if name is None:
+            name = attr
+
+        self.__data += (PyConstString(name=name, value=value),)
         # set attribute as slugfiy
         self.__dict__[s_attr(attr)] = self.__data[-1]
 
