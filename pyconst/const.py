@@ -34,14 +34,14 @@ class Const(object):
     def __set_iter_value(self, iter_value):
         name, attr, value = (None,) * 3
         if len(iter_value) == 1:
-            name = iter_value[0]
+            attr = iter_value[0]
         elif len(iter_value) == 2:
-            name, attr = iter_value
+            attr, value = iter_value
         elif len(iter_value) == 3:
             name, attr, value = iter_value
         elif len(iter_value) > 3:
-            attr = iter_value[1]
             value = iter_value[2]
+            attr = iter_value[1]
             name = iter_value[0]
         return name, attr, value
 
