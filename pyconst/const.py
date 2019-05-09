@@ -6,17 +6,14 @@ import enum
 
 class PyConstString(str):
 
-    def __new__(cls, name=None, value=None, to_case='upper'):
+    def __new__(cls, name=None, value=None):
         if not value:
             value = name
-        if to_case == 'upper':
-            value = s(value).upper()
-        elif to_case == 'lower':
-            value = s(value).lower()
         else:
             value = s(value)
         obj = str.__new__(cls, value)
         obj.name = name
+        obj.label = name
         obj.value = value
         return obj
 
@@ -25,6 +22,7 @@ class Const(object):
 
     def __init__(self, *args, **kwargs):
         self.__data = ()
+
         for value in args:
             self.add(value)
 
@@ -38,24 +36,27 @@ class Const(object):
         elif len(iter_value) == 2:
             attr, value = iter_value
         elif len(iter_value) == 3:
-            name, attr, value = iter_value
+            attr, value, name = iter_value
         elif len(iter_value) > 3:
-            value = iter_value[2]
-            attr = iter_value[1]
-            name = iter_value[0]
-        return name, attr, value
+            name = iter_value[2]
+            value = iter_value[1]
+            attr = iter_value[0]
+        return attr, value, name
 
     def get_const_string(self, name, value):
-        return PyConstString(name=name, value=value, to_case="upper")
+        return PyConstString(name=name, value=value)
 
     def to_enum(self):
         return enum.Enum('DynamicEnum', {i[0]:i[0] for i in self})
 
-    def add(self, name, attr=None, value=None):
+    def add(self, attr, value=None, name=None):
         "Set values in constant"
 
         if isinstance(name, tuple) or isinstance(name, list):
-            name, attr, value = self.__set_iter_value(name)
+            attr, value, name  = self.__set_iter_value(name)
+
+        if name is None:
+            name = attr
 
         if attr is None:
             attr = name
@@ -77,24 +78,3 @@ class Const(object):
 
     def __len__(self):
         return len(self.__data)
-
-
-class LowerConst(Const):
-    "Force value to lower case by default"
-
-    def get_const_string(self, name, value):
-        return PyConstString(name=name, value=value, to_case="lower")
-
-
-class UpperConst(Const):
-    "Force value to upper case"
-
-    def get_const_string(self, name, value):
-        return PyConstString(name=name, value=value, to_case="upper")
-
-
-class DefaultConst(Const):
-    "Default value with only using slugify"
-
-    def get_const_string(self, name, value):
-        return PyConstString(name=name, value=value, to_case=None)

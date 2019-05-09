@@ -76,8 +76,8 @@ Yes, we working with Python. And now we can set the contants as one `Const`
 from pyconst import Const
 
 USER_PERMISSIONS = Const(
-    'Add User',
-    'Update User'
+    ('add_user', 'Add User'),
+    ('update_user', 'Update User'),
 )
 
 ```
@@ -110,8 +110,8 @@ Example in `django model`
 from pyconst import Const
 
 USER_PERMISSIONS = Const(
-    'Add User',
-    'Update User'
+    'ADD_USER',
+    'UPDATE_USER'
 )
 
 class CustomUser(AbstractUser):
@@ -121,64 +121,59 @@ class CustomUser(AbstractUser):
 
 ```
 
-If you need create consts with values as upper or lower by default
-
-```
-# force to update values to slugify as uppercase
-from pyconst import UpperConst
-from pyconst import Const
-
-# force to update values to slugify as lowercase
-from pyconst import LowerConst
-
-# return value without change any cases
-from pyconst import DefaultConst
-```
-
-
 Add value in constants
 
 ```
 >>> from pyconst import Const
 >>> const = Const()
->>> cont.add(label='My Label Name', attr='my_attribute_name')
+>>> cont.add(attr='my_attribute_name', label='My Label Name')
+>>> cont.my_attribute_name
+'my_attribute_name'
+>>> cont.my_attribute_name.name
+'My Label Name'
+>>> cont.my_attribute_name.label
+'My Label Name'
 ```
 
 or
 
 ```
 >>> from pyconst import Const
->>> const = Const('My Label Name')
+>>> const = Const('my_attribute_name')
+>>> const.my_attribute_name
+'my_attribute_name'
 ```
 
 or
 
 ```
 >>> from pyconst import Const
->>> const = Const(('My Label Name', 'my_attribute_name'))
+>>> const = Const(('MY_ATTRIBUTE_NAME', 'my_attribute_value'))
+>>> const.MY_ATTRIBUTE_NAME
+'my_attribute_value'
 ```
 
 or
 
 ```
 >>> from pyconst import Const
->>> const = Const(('My Label Name', 'my_attribute_name', 'my_attribute_value'))
+>>> const = Const(('my_attribute_name', 'my_attribute_value', 'My Label Name'))
 ```
 
 or
 
 ```
->>> c = Cont()
->>> c.add('First Item', 1)
->>> c._1
+>>> c = Const()
+>>> c.add('first item', 1)
+>>> c.first_item
 '1'
 ```
 
 or
 
 ```
->>> c = Cont()
->>> c.add(label='First Item',attr="my_attr", value=1)
+>>> c = Const()
+>>> c.add(attr="my_attr", value=1, label='First Item')
 >>> c.my_attr
 '1'
 ```

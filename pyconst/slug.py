@@ -23,4 +23,4 @@ def slugify_attr(input_str):
     input_str = to_string(input_str)
     if input_str.isdigit():
         input_str = '_' + input_str
-    return slugify(input_str).lower()
+    return slugify(input_str)
